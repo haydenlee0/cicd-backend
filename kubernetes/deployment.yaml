@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-hdlee
+  labels:
+    app: backend-hdlee
+spec:
+  selector:
+    matchLabels:
+      app: backend-hdlee
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend-hdlee
+    spec:
+      containers:
+        - name: backend-hdlee
+          image: hdlee/back-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
